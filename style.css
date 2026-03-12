@@ -9,6 +9,34 @@ h1 {
     color: #0366d6;
 }
 
+#summary {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#sorting {
+    margin-bottom: 20px;
+}
+
+#sorting button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0366d6;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#sorting button:hover {
+    background-color: #024c9c;
+}
+
 #repo-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
