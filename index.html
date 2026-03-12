@@ -9,6 +9,21 @@
     <h1>RepoRanger</h1>
     <p>Твоето табло за GitHub репа в реално време</p>
 
+    <!-- Summary box -->
+    <div id="summary">
+        <p>Общо репа: <span id="total-repos">0</span></p>
+        <p>Общо звезди: <span id="total-stars">0</span></p>
+        <p>Общо forks: <span id="total-forks">0</span></p>
+    </div>
+
+    <!-- Sorting buttons -->
+    <div id="sorting">
+        <button onclick="sortRepos('stars')">Сортирай по звезди</button>
+        <button onclick="sortRepos('forks')">Сортирай по forks</button>
+        <button onclick="sortRepos('pushed')">Сортирай по последен push</button>
+    </div>
+
+    <!-- Repo container -->
     <div id="repo-container"></div>
 
     <script src="script.js"></script>
