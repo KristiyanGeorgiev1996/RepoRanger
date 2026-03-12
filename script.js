@@ -1,4 +1,4 @@
-const username = "ТВОЕТО_ИМЕ_В_GITHUB"; // смени с твоето GitHub потребителско име
+const username = "KristiyanGeorgiev1996"; // смени с твоето GitHub потребителско име
 const repoContainer = document.getElementById("repo-container");
 
 fetch(`https://api.github.com/users/${username}/repos`)
