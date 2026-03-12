@@ -54,3 +54,6 @@ function sortRepos(criteria) {
     }
     displayRepos(sorted);
 }
+
+// Правим функцията глобална, за да я виждат бутоните
+window.sortRepos = sortRepos;
