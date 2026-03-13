@@ -11,29 +11,51 @@
 <body>
 
 <h1>RepoRanger</h1>
-<p>Твоето табло за GitHub репа в реално време</p>
+<p class="subtitle">Твоето табло за GitHub репа в реално време</p>
+
+<div class="top-controls">
 
 <button id="darkModeToggle">🌙 Dark Mode</button>
 
-<!-- Summary box -->
-<div id="summary">
-<p>Общо репа: <span id="total-repos">0</span></p>
-<p>Общо звезди: <span id="total-stars">0</span></p>
-<p>Общо forks: <span id="total-forks">0</span></p>
-<p>Общо commits: <span id="total-commits">0</span></p>
-</div>
-
-<!-- Language filter -->
 <select id="languageFilter">
 <option value="all">All Languages</option>
 </select>
 
+</div>
+
+<!-- Summary box -->
+<div id="summary">
+
+<div class="summary-card">
+<span class="summary-number" id="total-repos">0</span>
+<span class="summary-label">Repos</span>
+</div>
+
+<div class="summary-card">
+<span class="summary-number" id="total-stars">0</span>
+<span class="summary-label">Stars</span>
+</div>
+
+<div class="summary-card">
+<span class="summary-number" id="total-forks">0</span>
+<span class="summary-label">Forks</span>
+</div>
+
+<div class="summary-card">
+<span class="summary-number" id="total-commits">0</span>
+<span class="summary-label">Commits</span>
+</div>
+
+</div>
+
 <!-- Sorting buttons -->
 <div id="sorting">
-<button onclick="sortRepos('stars')">Stars</button>
-<button onclick="sortRepos('forks')">Forks</button>
-<button onclick="sortRepos('pushed')">Last Push</button>
-<button onclick="sortRepos('commits')">Commits</button>
+
+<button onclick="sortRepos('stars')">⭐ Stars</button>
+<button onclick="sortRepos('forks')">🍴 Forks</button>
+<button onclick="sortRepos('pushed')">🚀 Last Push</button>
+<button onclick="sortRepos('commits')">📦 Commits</button>
+
 </div>
 
 <canvas id="commitChart"></canvas>
