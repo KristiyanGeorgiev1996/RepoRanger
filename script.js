@@ -21,9 +21,12 @@ fetch(`https://api.github.com/users/${username}/repos`)
     })
     .catch(err => console.error("Грешка при извличане на репа:", err));
 
+
 function displayRepos(repos) {
     repoContainer.innerHTML = '';
-    repos.forEach(repo => {
+
+    repos.forEach(async repo => {
+
         const card = document.createElement("div");
         card.classList.add("repo-card");
 
@@ -32,10 +35,39 @@ function displayRepos(repos) {
             <p>${repo.description || "Няма описание"}</p>
             <p>⭐ Stars: ${repo.stargazers_count} | 🍴 Forks: ${repo.forks_count}</p>
             <p>Последен push: ${new Date(repo.pushed_at).toLocaleDateString()}</p>
+            <p class="commit-count">📦 Commits: изчисляване...</p>
         `;
+
         repoContainer.appendChild(card);
+
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`
+            );
+
+            const linkHeader = response.headers.get("Link");
+
+            let commits = 0;
+
+            if (linkHeader) {
+                const match = linkHeader.match(/page=(\d+)>; rel="last"/);
+                if (match) commits = match[1];
+            } else {
+                const data = await response.json();
+                commits = data.length;
+            }
+
+            card.querySelector(".commit-count").textContent =
+                `📦 Commits: ${commits}`;
+
+        } catch (err) {
+            card.querySelector(".commit-count").textContent =
+                `📦 Commits: N/A`;
+        }
+
     });
 }
+
 
 function updateSummary(repos, totalCommits) {
     const totalRepos = repos.length;
@@ -48,42 +80,58 @@ function updateSummary(repos, totalCommits) {
     document.getElementById("total-commits").textContent = totalCommits;
 }
 
+
 // Функция за общи commits
 async function getTotalCommits(repos) {
     let total = 0;
+
     for (const repo of repos) {
         try {
             const branch = repo.default_branch;
-            const response = await fetch(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1&sha=${branch}`);
+
+            const response = await fetch(
+                `https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1&sha=${branch}`
+            );
+
             const linkHeader = response.headers.get('Link');
+
             if (linkHeader) {
-                // Парсваме последния page number за общи commits
                 const match = linkHeader.match(/&page=(\d+)>; rel="last"/);
+
                 if (match) total += parseInt(match[1]);
                 else total += 1;
+
             } else {
                 const data = await response.json();
                 total += data.length;
             }
+
         } catch (err) {
             console.error(`Грешка при commits на ${repo.name}:`, err);
         }
     }
+
     return total;
 }
+
 
 // Сортиране
 function sortRepos(criteria) {
     let sorted = [...allRepos];
+
     if(criteria === 'stars') {
         sorted.sort((a,b) => b.stargazers_count - a.stargazers_count);
-    } else if(criteria === 'forks') {
+    } 
+    else if(criteria === 'forks') {
         sorted.sort((a,b) => b.forks_count - a.forks_count);
-    } else if(criteria === 'pushed') {
+    } 
+    else if(criteria === 'pushed') {
         sorted.sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at));
     }
+
     displayRepos(sorted);
 }
+
 
 // Глобална функция за бутоните
 window.sortRepos = sortRepos;
