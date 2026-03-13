@@ -65,3 +65,21 @@ h1 {
     margin: 5px 0;
     font-size: 0.9rem;
 }
+
+.dark{
+background:#121212;
+color:white;
+}
+
+.dark .repo-card{
+background:#1e1e1e;
+}
+
+.dark #summary{
+background:#1e1e1e;
+}
+
+#commitChart{
+max-width:900px;
+margin:40px auto;
+}
