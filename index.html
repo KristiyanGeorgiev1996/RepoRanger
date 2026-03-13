@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <title>RepoRanger - Моите GitHub Репа</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>RepoRanger - Моите GitHub Репа</title>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
-    <h1>RepoRanger</h1>
-    <p>Твоето табло за GitHub репа в реално време</p>
 
-    <!-- Summary box -->
-    <div id="summary">
-        <p>Общо репа: <span id="total-repos">0</span></p>
-        <p>Общо звезди: <span id="total-stars">0</span></p>
-        <p>Общо forks: <span id="total-forks">0</span></p>
-        <p>Общо commits: <span id="total-commits">0</span></p> <!-- <- добавихме този ред -->
-    </div>
+<h1>RepoRanger</h1>
+<p>Твоето табло за GitHub репа в реално време</p>
 
-    <!-- Sorting buttons -->
-    <div id="sorting">
-        <button onclick="sortRepos('stars')">Сортирай по звезди</button>
-        <button onclick="sortRepos('forks')">Сортирай по forks</button>
-        <button onclick="sortRepos('pushed')">Сортирай по последен push</button>
-    </div>
+<button id="darkModeToggle">🌙 Dark Mode</button>
 
-    <!-- Repo container -->
-    <div id="repo-container"></div>
+<!-- Summary box -->
+<div id="summary">
+<p>Общо репа: <span id="total-repos">0</span></p>
+<p>Общо звезди: <span id="total-stars">0</span></p>
+<p>Общо forks: <span id="total-forks">0</span></p>
+<p>Общо commits: <span id="total-commits">0</span></p>
+</div>
 
-    <script src="script.js"></script>
+<!-- Language filter -->
+<select id="languageFilter">
+<option value="all">All Languages</option>
+</select>
+
+<!-- Sorting buttons -->
+<div id="sorting">
+<button onclick="sortRepos('stars')">Stars</button>
+<button onclick="sortRepos('forks')">Forks</button>
+<button onclick="sortRepos('pushed')">Last Push</button>
+<button onclick="sortRepos('commits')">Commits</button>
+</div>
+
+<canvas id="commitChart"></canvas>
+
+<div id="repo-container"></div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
