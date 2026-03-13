@@ -1,137 +1,201 @@
 const username = "KristiyanGeorgiev1996";
 const repoContainer = document.getElementById("repo-container");
+const languageFilter = document.getElementById("languageFilter");
 
-let allRepos = []; // ще пази репата за сортиране
+let allRepos = [];
 
 fetch(`https://api.github.com/users/${username}/repos`)
-    .then(response => response.json())
-    .then(repos => {
-        allRepos = repos;
+.then(res => res.json())
+.then(async repos => {
 
-        // Показваме summary без commits за момента
-        updateSummary(repos, 0);
+allRepos = repos;
 
-        // Изчисляваме общи commits асинхронно
-        getTotalCommits(repos).then(totalCommits => {
-            updateSummary(repos, totalCommits);
-        });
+populateLanguages(repos);
 
-        // Показваме репата
-        displayRepos(repos);
-    })
-    .catch(err => console.error("Грешка при извличане на репа:", err));
+updateSummary(repos,0);
 
+await loadCommits(repos);
 
-function displayRepos(repos) {
-    repoContainer.innerHTML = '';
+displayRepos(repos);
 
-    repos.forEach(async repo => {
+createChart(repos);
 
-        const card = document.createElement("div");
-        card.classList.add("repo-card");
+});
 
-        card.innerHTML = `
-            <h2><a href="${repo.html_url}" target="_blank">${repo.name}</a></h2>
-            <p>${repo.description || "Няма описание"}</p>
-            <p>⭐ Stars: ${repo.stargazers_count} | 🍴 Forks: ${repo.forks_count}</p>
-            <p>Последен push: ${new Date(repo.pushed_at).toLocaleDateString()}</p>
-            <p class="commit-count">📦 Commits: изчисляване...</p>
-        `;
+async function loadCommits(repos){
 
-        repoContainer.appendChild(card);
+let total = 0;
 
-        try {
-            const response = await fetch(
-                `https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`
-            );
+for(const repo of repos){
 
-            const linkHeader = response.headers.get("Link");
+try{
 
-            let commits = 0;
+const response = await fetch(
+`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`
+);
 
-            if (linkHeader) {
-                const match = linkHeader.match(/page=(\d+)>; rel="last"/);
-                if (match) commits = match[1];
-            } else {
-                const data = await response.json();
-                commits = data.length;
-            }
+const link = response.headers.get("Link");
 
-            card.querySelector(".commit-count").textContent =
-                `📦 Commits: ${commits}`;
+let commits = 0;
 
-        } catch (err) {
-            card.querySelector(".commit-count").textContent =
-                `📦 Commits: N/A`;
-        }
-
-    });
+if(link){
+const match = link.match(/page=(\d+)>; rel="last"/);
+if(match) commits = parseInt(match[1]);
 }
 
+repo.commitCount = commits;
 
-function updateSummary(repos, totalCommits) {
-    const totalRepos = repos.length;
-    const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
-    const totalForks = repos.reduce((sum, r) => sum + r.forks_count, 0);
+total += commits;
 
-    document.getElementById("total-repos").textContent = totalRepos;
-    document.getElementById("total-stars").textContent = totalStars;
-    document.getElementById("total-forks").textContent = totalForks;
-    document.getElementById("total-commits").textContent = totalCommits;
+}catch{
+
+repo.commitCount = 0;
+
 }
 
-
-// Функция за общи commits
-async function getTotalCommits(repos) {
-    let total = 0;
-
-    for (const repo of repos) {
-        try {
-            const branch = repo.default_branch;
-
-            const response = await fetch(
-                `https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1&sha=${branch}`
-            );
-
-            const linkHeader = response.headers.get('Link');
-
-            if (linkHeader) {
-                const match = linkHeader.match(/&page=(\d+)>; rel="last"/);
-
-                if (match) total += parseInt(match[1]);
-                else total += 1;
-
-            } else {
-                const data = await response.json();
-                total += data.length;
-            }
-
-        } catch (err) {
-            console.error(`Грешка при commits на ${repo.name}:`, err);
-        }
-    }
-
-    return total;
 }
 
+updateSummary(repos,total);
 
-// Сортиране
-function sortRepos(criteria) {
-    let sorted = [...allRepos];
-
-    if(criteria === 'stars') {
-        sorted.sort((a,b) => b.stargazers_count - a.stargazers_count);
-    } 
-    else if(criteria === 'forks') {
-        sorted.sort((a,b) => b.forks_count - a.forks_count);
-    } 
-    else if(criteria === 'pushed') {
-        sorted.sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-    }
-
-    displayRepos(sorted);
 }
 
+function displayRepos(repos){
 
-// Глобална функция за бутоните
-window.sortRepos = sortRepos;
+repoContainer.innerHTML="";
+
+repos.forEach(repo=>{
+
+const card = document.createElement("div");
+
+card.classList.add("repo-card");
+
+card.innerHTML=`
+<h2><a href="${repo.html_url}" target="_blank">${repo.name}</a></h2>
+<p>${repo.description||"Няма описание"}</p>
+<p>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
+<p>📦 Commits: ${repo.commitCount||0}</p>
+<p>Language: ${repo.language||"Unknown"}</p>
+<p>Last push: ${new Date(repo.pushed_at).toLocaleDateString()}</p>
+`;
+
+repoContainer.appendChild(card);
+
+});
+
+}
+
+function updateSummary(repos,totalCommits){
+
+document.getElementById("total-repos").textContent=repos.length;
+
+document.getElementById("total-stars").textContent=
+repos.reduce((s,r)=>s+r.stargazers_count,0);
+
+document.getElementById("total-forks").textContent=
+repos.reduce((s,r)=>s+r.forks_count,0);
+
+document.getElementById("total-commits").textContent=totalCommits;
+
+}
+
+function sortRepos(criteria){
+
+let sorted=[...allRepos];
+
+if(criteria==="stars")
+sorted.sort((a,b)=>b.stargazers_count-a.stargazers_count);
+
+if(criteria==="forks")
+sorted.sort((a,b)=>b.forks_count-a.forks_count);
+
+if(criteria==="pushed")
+sorted.sort((a,b)=>new Date(b.pushed_at)-new Date(a.pushed_at));
+
+if(criteria==="commits")
+sorted.sort((a,b)=>(b.commitCount||0)-(a.commitCount||0));
+
+displayRepos(sorted);
+
+createChart(sorted);
+
+}
+
+window.sortRepos=sortRepos;
+
+function populateLanguages(repos){
+
+const langs=new Set();
+
+repos.forEach(r=>{if(r.language)langs.add(r.language)});
+
+langs.forEach(lang=>{
+
+const option=document.createElement("option");
+
+option.value=lang;
+
+option.textContent=lang;
+
+languageFilter.appendChild(option);
+
+});
+
+}
+
+languageFilter.addEventListener("change",()=>{
+
+const lang=languageFilter.value;
+
+if(lang==="all"){
+
+displayRepos(allRepos);
+
+createChart(allRepos);
+
+}else{
+
+const filtered=allRepos.filter(r=>r.language===lang);
+
+displayRepos(filtered);
+
+createChart(filtered);
+
+}
+
+});
+
+function createChart(repos){
+
+const ctx=document.getElementById("commitChart");
+
+const labels=repos.map(r=>r.name);
+
+const commits=repos.map(r=>r.commitCount||0);
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:labels,
+
+datasets:[{
+
+label:"Commits per Repo",
+
+data:commits
+
+}]
+
+}
+
+});
+
+}
+
+document.getElementById("darkModeToggle").addEventListener("click",()=>{
+
+document.body.classList.toggle("dark");
+
+});
