@@ -1,123 +1,114 @@
 # RepoRanger
+📊 GitHub Repository Dashboard – Quickly visualize stars, forks, and activity for your repositories. Personal project with MIT license.
 
-![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
-![License](https://img.shields.io/github/license/KristiyanGeorgiev1996/RepoRanger)
+![RepoRanger Screenshot](Images/RepoRanger-Screenshot.png)
+
+[RepoRanger Docs / GitHub Pages](https://kristiyangeorgiev1996.github.io/RepoRanger/)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
+![HTML5](https://img.shields.io/badge/HTML5-CSS3-orange)
+![Chart.js](https://img.shields.io/badge/Chart.js-Graphing-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 ![Stars](https://img.shields.io/github/stars/KristiyanGeorgiev1996/RepoRanger)
-![Forks](https://img.shields.io/github/forks/KristiyanGeorgiev1996/RepoRanger)
-![Last Commit](https://img.shields.io/github/last-commit/KristiyanGeorgiev1996/RepoRanger)
-![Issues](https://img.shields.io/github/issues/KristiyanGeorgiev1996/RepoRanger)
+
+RepoRanger is a **client-side dashboard** that displays key metrics for GitHub repositories, including stars, forks, and last push.
+
+It is a personal project designed for learning, visualization, and efficiently tracking repositories.
 
 ---
 
-## 🚀 Описание
+## 📌 Features
 
-**RepoRanger** е интерактивно табло за визуализация на GitHub репозитории.  
-С него можеш да следиш:
-
-- ⭐ Брой звезди (Stars)
-- 🍴 Брой форкове (Forks)
-- ⏱ Последна активност (Last Push)
-- 📊 Основни статистики за всички твои репа
-
-Целта е да предостави **бърз, визуален и удобен начин** за управление на личните и екипни проекти.
+- Fetches all public repositories of a GitHub user  
+- Displays stars, forks, and last push date for each repository  
+- Interactive visualization with charts (Chart.js)  
+- Responsive layout for desktop and mobile devices  
+- Easy navigation to repository links  
+- Live updates when refreshing the dashboard  
 
 ---
 
-## 🎬 Демонстрация
+## 📁 Project Structure
 
-![Demo GIF](https://user-images.githubusercontent.com/твоят-user/demo.gif)  
-*Примерен screenshot на таблото с репозитории и графики.*
-
-[Линк към жив preview (GitHub Pages)](https://kristiyangeorgiev1996.github.io/RepoRanger/)
-
----
-
-## 🛠 Технологии
-
-- **JavaScript / ES6+**
-- **HTML5 & CSS3**
-- **Fetch API** за извличане на GitHub данни
-- **Chart.js** за визуализация на статистики
-- **GitHub Pages** за деплой
-
----
-
-## 📦 Инсталация
-
-Следвай тези стъпки, за да стартираш проекта локално:
-
-```bash
-# Клониране на репото
-git clone https://github.com/KristiyanGeorgiev1996/RepoRanger.git
-
-# Влизане в папката
-cd RepoRanger
-
-# Отвори index.html в браузъра
-open index.html  # или двоен клик върху файла
+```text
+RepoRanger/
+│   ├─ index.html             <- Main HTML page
+│   ├─ src/
+│   │   ├─ app.js             <- Main JS logic for fetching and rendering
+│   │   ├─ chart.js           <- Chart.js setup for visualizations
+│   │   └─ styles.css         <- CSS styling
+│   ├─ Images/                <- Screenshots and GIFs
+│   ├─ docs/                  <- Documentation files
+│   │   ├─ index.md
+│   │   ├─ installation.md
+│   │   └─ usage.md
+│   ├─ LICENSE
+│   └─ README.md
 ```
 
-> Важно: Проектът работи изцяло клиентски (без backend), но може да се разшири с Node.js/Express за допълнителни функции.
+---
+
+## ⚙️ Installation
+
+Follow the steps below to run RepoRanger locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/KristiyanGeorgiev1996/RepoRanger.git
+
+# Enter the folder
+cd RepoRanger
+
+# Open index.html in your browser
+open index.html  # or double-click the file
+```
+
+> ⚠️ RepoRanger works entirely client-side (no backend). It can be extended with Node.js/Express for additional features.
 
 ---
 
-## ⚡ Как да използваш RepoRanger
+## 💻 Usage
 
-1. Въведи потребителското си име в GitHub.  
-2. Виж списъка с репозитории и статистики.  
-3. Натисни на репо за допълнителни данни.  
-4. Виж визуализации на stars и forks за всеки репо.
+1. Enter your GitHub username  
+2. View the list of repositories with stars, forks, and last activity  
+3. Click on a repository to see detailed statistics  
+4. Charts display repository trends interactively  
 
----
-
-## 💡 Идеи за бъдещи подобрения
-
-- Добавяне на **филтриране по езици и тагове**  
-- Потребителски dashboard с **favoriting на репа**  
-- Автоматичен update чрез **GitHub Webhooks**  
-- Преход към **React / Next.js** за динамичност  
-- Визуализация на **trends във времето (line charts)**
+See the [Usage guide](docs/usage.md) for screenshots and instructions.
 
 ---
 
-## 🧑‍💻 Как да допринесеш
+## 🔗 Documentation / GitHub Pages
 
-1. Fork‑ни репото  
-2. Създай feature branch:  
-   ```bash
-   git checkout -b feature/your-feature
-   ```
+All Markdown files and GIFs are available as a landing page:
 
-3. Commit‑ни промените:
-   ```
-   git commit -m "Добави нова функция"
-   ```
-
-4. Push в branch:
-   ```
-   git push origin feature/your-feature
-   ```
-5. Създай Pull Request
+[RepoRanger Docs / GitHub Pages](https://kristiyangeorgiev1996.github.io/RepoRanger/)
 
 ---
 
-## 📄 License
+## ⚠️ Security
 
-Този проект е лицензиран под **MIT License**.  
-Виж [LICENSE](LICENSE) за повече информация.
+- No sensitive data is required (client-side application)  
+- If extended with API tokens in the future, use `.env` and never commit credentials  
 
 ---
 
-## 📞 Контакт
+## 📜 License
 
-- **Автор:** Kristiyan Georgiev  
+MIT License – free to use, but always credit the author.
+
+---
+
+## 📞 Contact
+
+- **Author:** Kristiyan Georgiev  
 - **GitHub:** [KristiyanGeorgiev1996](https://github.com/KristiyanGeorgiev1996)  
-- **Email:** kristiyan.email@example.com
+- **Email:** georgievk1996@gmail.com  
 
 ---
 
-## ⭐ Благодарности
+## ⭐ Acknowledgements
 
-- GitHub API за лесен достъп до данни  
-- Chart.js за красиви графики  
-- Всички open-source инструменти, които правят живота ни по-лесен
+- GitHub API – for fetching repository data  
+- Chart.js – for interactive charts  
+- All open-source tools that make development easier
