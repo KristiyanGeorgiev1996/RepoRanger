@@ -1,7 +1,6 @@
 # RepoRanger
 
-![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen)
-![Dependencies](https://img.shields.io/librariesio/github/KristiyanGeorgiev1996/RepoRanger)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![License](https://img.shields.io/github/license/KristiyanGeorgiev1996/RepoRanger)
 ![Stars](https://img.shields.io/github/stars/KristiyanGeorgiev1996/RepoRanger)
 ![Forks](https://img.shields.io/github/forks/KristiyanGeorgiev1996/RepoRanger)
