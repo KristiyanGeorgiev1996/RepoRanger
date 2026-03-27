@@ -82,11 +82,17 @@ See the [Usage guide](docs/usage.md) for screenshots and instructions.
 
 ---
 
-## 🔗 Documentation / GitHub Pages
+## 📚 Documentation
 
-All Markdown files and GIFs are available as a landing page:
+Detailed documentation is available in the **docs folder**.
 
-[RepoRanger Docs / GitHub Pages](https://kristiyangeorgiev1996.github.io/RepoRanger/)
+- 📦 [Installation Guide](docs/installation.md)
+- 💻 [Usage Guide](docs/usage.md)
+- 👨‍💻 [Developer Guide](docs/developer-guide.md)
+
+You can also browse the documentation as a landing page:
+
+🔗 [RepoRanger Docs / GitHub Pages](https://kristiyangeorgiev1996.github.io/RepoRanger/)
 
 ---
 
