@@ -40,7 +40,7 @@ The application works as follows:
 
 ## Main Components
 
-### app.js
+### script.js
 
 Handles:
 
@@ -50,7 +50,7 @@ Handles:
 
 ---
 
-### chart.js
+### index.js
 
 Responsible for:
 
