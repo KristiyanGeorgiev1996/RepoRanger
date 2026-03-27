@@ -8,6 +8,6 @@ docs/
 ├── developer-guide.md
 ├── installation.md
 ├── usage.md
-└── screenshots/
+├── screenshots/
   └── screenshot.png
 ```
