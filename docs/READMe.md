@@ -9,5 +9,5 @@ docs/
 ├── installation.md
 ├── usage.md
 ├── screenshots/
-  └── screenshot.png
+├── screenshot.png
 ```
