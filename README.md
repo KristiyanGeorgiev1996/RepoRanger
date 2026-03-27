@@ -13,6 +13,8 @@
 ![Chart.js](https://img.shields.io/badge/Chart.js-Graphing-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Stars](https://img.shields.io/github/stars/KristiyanGeorgiev1996/RepoRanger)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Version](https://img.shields.io/github/v/release/KristiyanGeorgiev1996/RepoRanger)
 
 RepoRanger is a **client-side dashboard** that displays key metrics for GitHub repositories, including stars, forks, and last push.
 
