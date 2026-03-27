@@ -35,18 +35,16 @@ It is a personal project designed for learning, visualization, and efficiently t
 
 ```text
 RepoRanger/
-│   ├─ index.html             <- Main HTML page
-│   ├─ src/
-│   │   ├─ app.js             <- Main JS logic for fetching and rendering
-│   │   ├─ chart.js           <- Chart.js setup for visualizations
-│   │   └─ styles.css         <- CSS styling
-│   ├─ Images/                <- Screenshots and GIFs
-│   ├─ docs/                  <- Documentation files
+│   ├─ index.html            <- Main HTML page
+│   ├─ script.js             <- Main JS logic for fetching and rendering
+│   ├─ styles.css            <- CSS styling
+│   ├─ Images/               <- Screenshots and GIFs
+│   ├─ docs/                 <- Documentation files
 │   │   ├─ index.md
 │   │   ├─ installation.md
 │   │   └─ usage.md
 │   ├─ LICENSE
-│   └─ README.md
+└── README.md
 ```
 
 ---
