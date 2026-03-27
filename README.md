@@ -5,7 +5,6 @@
 
 [RepoRanger Docs / GitHub Pages](https://kristiyangeorgiev1996.github.io/RepoRanger/)
 
-![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)
 ![Last Commit](https://img.shields.io/github/last-commit/KristiyanGeorgiev1996/RepoRanger)
 ![Repo Size](https://img.shields.io/github/repo-size/KristiyanGeorgiev1996/RepoRanger)
 ![Issues](https://img.shields.io/github/issues/KristiyanGeorgiev1996/RepoRanger)
