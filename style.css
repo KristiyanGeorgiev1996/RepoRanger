@@ -77,23 +77,33 @@ h1 { color: #0366d6; margin-bottom: 5px; }
 ========================== */
 #repo-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
   margin-top: 20px;
 }
 
 .repo-card {
   background: white;
-  padding: 18px;
+  padding: 20px 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
 
-.repo-card:hover { transform: scale(1.05); }
+.repo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-.repo-card h2 a { color: #0366d6; text-decoration: none; }
-.repo-card p { margin: 6px 0; font-size: 0.9rem; }
+.repo-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.repo-card p {
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
 
 /* ==========================
    DARK MODE
@@ -105,6 +115,7 @@ h1 { color: #0366d6; margin-bottom: 5px; }
 
 .dark .repo-card,
 .dark .summary-card { background: #1e1e1e; }
+
 .dark #languageFilter { background: #333; }
 .dark #sorting button { background: #333; }
 .dark #sorting button:hover { background: #555; }
