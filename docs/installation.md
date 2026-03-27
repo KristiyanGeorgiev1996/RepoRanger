@@ -55,9 +55,7 @@ This guide explains how to use RepoRanger.
 Type a GitHub username in the input field.
 
 Example:
-```
 torvalds
-```
 
 
 ---
