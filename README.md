@@ -119,4 +119,3 @@ MIT License – free to use, but always credit the author.
 - GitHub API – for fetching repository data  
 - Chart.js – for interactive charts  
 - All open-source tools that make development easier
-
