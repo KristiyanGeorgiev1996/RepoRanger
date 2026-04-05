@@ -1,7 +1,8 @@
 # RepoRanger
 📊 GitHub Repository Dashboard – Quickly visualize stars, forks, and activity for your repositories. Personal project with MIT license.
 
-![RepoRanger Screenshot](Images/RepoRanger-Screenshot.png)
+![RepoRanger Screenshot](Images/Screenshot-1.png)
+![RepoRanger Screenshot](Images/Screenshot-2.png)
 
 [RepoRanger Docs / GitHub Pages](https://kristiyangeorgiev1996.github.io/RepoRanger/)
 
