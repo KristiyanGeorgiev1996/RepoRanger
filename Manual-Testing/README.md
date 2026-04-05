@@ -1,5 +1,6 @@
 # RepoRanger - Manual Testing
 
+
 ## Test Scope
 
 This document covers full manual testing of the RepoRanger application including:
@@ -15,6 +16,14 @@ This document covers full manual testing of the RepoRanger application including
 
 ---
 
+## Test Environment
+
+- Browser: Google Chrome (latest)
+- OS: Windows 10 / 11
+- Internet: Required (GitHub API)
+- Device: Desktop
+
+---
 
 ## Test Cases
 
