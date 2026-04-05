@@ -25,7 +25,7 @@ This document covers full manual testing of the RepoRanger application including
 | TC-002 | UI | Verify heading | Observe top section | Title and subtitle visible | ✅ Pass |
 | TC-003 | UI | Layout structure | Inspect page | All sections visible | ✅ Pass |
 | TC-004 | UI | No console errors | Open DevTools → Console | No critical errors | ✅ Pass |
-
+|----|--------|----------|-------|----------------|--------|
 | TC-005 | API | Fetch repos | Load page | Repos appear | ✅ Pass |
 | TC-006 | API | Data accuracy | Compare with GitHub | Matches real data | ✅ Pass |
 | TC-007 | API | Empty response handling | Simulate no repos | Page does not crash | ✅ Pass |
