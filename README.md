@@ -34,18 +34,28 @@ It is a personal project designed for learning, visualization, and efficiently t
 
 ## 📁 Project Structure
 
-```text
+```
 RepoRanger/
-│   ├─ index.html            <- Main HTML page
-│   ├─ script.js             <- Main JS logic for fetching and rendering
-│   ├─ styles.css            <- CSS styling
-│   ├─ Images/               <- Screenshots and GIFs
-│   ├─ docs/                 <- Documentation files
-│   │   ├─ index.md
-│   │   ├─ installation.md
-│   │   └─ usage.md
-│   ├─ LICENSE
-└── README.md
+│
+├── index.html              # Main HTML page
+├── script.js               # Main JavaScript logic (API + UI)
+├── styles.css              # Styling
+│
+├── assets/
+│   └── images/
+│       ├── screenshot-1.png
+│       └── screenshot-2.png
+│
+├── docs/
+│   ├── index.md            # Project overview
+│   ├── installation.md     # Setup instructions
+│   └── usage.md            # How to use the app
+│
+├── testing/
+│   └── manual-testing.md   # Manual QA documentation
+│
+├── LICENSE
+└── README.md               # Main project description
 ```
 
 ---
