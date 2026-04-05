@@ -1,4 +1,4 @@
-# RepoRanger - Manual Testing (QA Portfolio Version)
+# RepoRanger - Manual Testing
 
 ## Test Scope
 
