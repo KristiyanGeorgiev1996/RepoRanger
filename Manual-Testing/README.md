@@ -15,7 +15,6 @@ This document covers full manual testing of the RepoRanger application including
 
 ---
 
-# RepoRanger - Manual Testing
 
 ## Test Cases
 
